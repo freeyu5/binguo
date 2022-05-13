@@ -12,8 +12,8 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>槟果出行BINGUOBIKE</title>
-
+  <title>槟果出行</title>
+  <link rel="icon" type="image/x-icon" href="images/LOGO.png" />
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -31,7 +31,7 @@
 
 <body>    <!-- header section strats -->
     <header class="header_section">
-      <div class="container-fluid">
+      <div class="container-fluid container">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
             <img style="width:50px;height:50px" src="images/LOGO1.png" />
@@ -131,7 +131,7 @@
         <div class="about_card">
           <div class="about-detail">
             <div class="about_img-box">
-              <img src="images/card-img-1.png" alt="">
+              <img src="images/bike.gif" alt="">
             </div>
             <div class="card_detail-ox">
               <h4>
@@ -146,7 +146,7 @@
         <div class="about_card">
           <div class="about-detail">
             <div class="about_img-box">
-              <img src="images/card-img-2.png" alt="">
+              <img src="images/data.gif" alt="">
             </div>
             <div class="card_detail-ox">
               <h4>
@@ -161,7 +161,7 @@
         <div class="about_card">
           <div class="about-detail">
             <div class="about_img-box">
-              <img src="images/card-img-3.png" alt="">
+              <img src="images/earth1.gif" alt="">
             </div>
             <div class="card_detail-ox">
               <h4>
@@ -194,27 +194,34 @@
     <div class="container layout_padding2-top ">
       <div class="row">
         <div class="col-md-8">
-          <div class="portfolio_img-box">	
+          <div class="portfolio_img-box" onmouseenter="bigImg()" onmouseleave="outImg()">	
 			<img src="images/portfolio-img-1.png" alt="">
-			<b>完善成熟的生产链</b>
+			<b>完善的用户端程序</b>
+			<div class="img_wec_con">
+				<span><b class="imgDet">APP</b></span><img class="img_wec" src="images/APP.png" /><br/>
+				<span><b class="imgDet">小程序</b></span><img class="img_wec" src="images/WEC.png" />
+			</div>
+			<div class="qrcode-con" id="qrcode-con">
+				<div class="qrcode-line" id="qrcode-line"></div>
+			</div>
 		  </div>
         </div>
         <div class="col-md-4">
           <div class="portfolio_img-box">
-            <img src="images/portfolio-img-2.jpg" alt="">
+            <img src="images/AI.png" alt="">
 			<b>AI智能管理平台</b>
           </div>
         </div>
         <div class="col-md-4">
           <div class="portfolio_img-box">
             <img src="images/portfolio-img-3.png" alt="">
-			<b>久经沙场的运营团队</b>
+			<b>Online&offline <br/>全程提供支持</b>
           </div>
         </div>
         <div class="col-md-8">
           <div class="portfolio_img-box">
             <img src="images/portfolio-img-4.png" alt="">
-			<b>全方位专业服务</b>
+			<b>一站式打包服务</b>
           </div>
         </div>
       </div>
@@ -238,26 +245,26 @@
 
       <div class="row">
         <div class="col-md-6 ">
-          <form action="">
+          <form action="sentus.php" method="post">
             <div class="contact_form-container">
               <div>
                 <div>
                   <label>
                     您的称呼
-                    <input type="text" />
+                    <input type="text" name="fname" maxlength="8" required>
                   </label>
                 </div>
                 <div>
                   <label>
                     联系号码
-                    <input type="text" />
+                    <input type="text" maxlength="11" name="fnumb"  oninput="value=value.replace(/[^\d]/g,'')" required>
                   </label>
                 </div>
 
                 <div>
                   <label>
                     其它备注
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <textarea name="fothe" maxlength="100" placeholder="100字以内" cols="30" rows="10"></textarea>
                   </label>
                 </div>
                 <div class="mt-5">
@@ -321,12 +328,13 @@
   <hr class="footer_hr">
   <!-- footer section -->
   <section class="container-fluid footer_section">
-    <p><img style="width:20px;" src="images/40.png">皖ICP备2021003631号
-    </p>
+    <a href="https://beian.miit.gov.cn/" target="_blank"><p><img style="width:20px;" src="images/40.png">备案号:皖ICP备2021003631号-2
+
+    </p></a>
   </section>
   <!-- footer section -->
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!--  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> -->
 
 
 
@@ -335,7 +343,27 @@
       document.getElementById("myNav").classList.toggle("menu_width")
       document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
     }
-</script>
+	function bigImg(){
+		var qr_line=document.getElementById('qrcode-line');
+		var qr_con=document.getElementById('qrcode-con');
+		qr_line.classList.add('qrcode-line-hover');
+		qr_line.style="display:block";
+		}
+	function outImg(){
+		var qr_line=document.getElementById('qrcode-line');
+		var qr_con=document.getElementById('qrcode-con');
+		qr_line.classList.remove('qrcode-line-hover');
+		qr_line.style="display:none";
+	}
+	function datafle(){
+	daTa=document.getElementById("data_con");
+	//daTa.style.display="flex";
+	}
+	function datanon(){
+	daTa=document.getElementById("data_con");
+	//daTa.style.display="none";
+	}
+  </script>
 
 
 </body>
